@@ -37,5 +37,24 @@ function menuDOM(){
     container.appendChild(startGameBtn);
     container.appendChild(playerNameOne);
     container.appendChild(playerNameTwo);
+
+    //Start Event Listener
+    startGameBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const playerOneData = container.elements['playerOneName'].value;
+        const playerTwoData = container.elements['playerTwoName'].value;
+        startGame();        //Start game
+        playerData(playerOneData, playerTwoData);       //Seperate function to take player name data
+    });
+
+    
 }
 
+function startGame(){
+    document.querySelector('.menu-container').style.display = 'none';
+    log("started game");
+}
+
+function playerData(playerOne, playerTwo){
+    log(`P1: ${playerOne}\nP2: ${playerTwo}`);
+}
