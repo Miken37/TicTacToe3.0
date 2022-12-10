@@ -12,7 +12,7 @@ body {
 
 .menu-container{
     width: 400px;
-    height: 700px;
+    height: 500px;
     background-color: rgb(214, 214, 214);
     border: 5px grey solid;
     border-radius: 10px;
@@ -22,8 +22,30 @@ body {
     align-items: center;
 }
 
-
-
 h1{
    color:rgb(77, 77, 77); 
+}
+
+.start-button{
+    outline: none;
+    border-radius: 5px;
+    border: 0px;
+    width: 60%;
+    height: 50px;
+    background-color: rgb(77, 77, 77);
+    color:rgb(214, 214, 214);
+    font-weight: bold;
+    font-size: 200%;
+    margin-bottom: 50px;
+}
+
+.start-button:hover{
+    transform: scale(1.1, 1.1)
+}
+
+.inputs{
+    margin-bottom: 30px;
+    font-size: 25px;
+    color:rgb(77, 77, 77);
+    max-width: 70%;
 }
