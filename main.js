@@ -2,8 +2,6 @@ function log(text){
     return console.log(text);
 }
 
-log("Connected");
-
 (function menuCreate(){                 //Insantiates upon load of page.
     menuDOM();
 })();
@@ -43,18 +41,24 @@ function menuDOM(){
         e.preventDefault();
         const playerOneData = container.elements['playerOneName'].value;
         const playerTwoData = container.elements['playerTwoName'].value;
-        startGame();        //Start game
-        playerData(playerOneData, playerTwoData);       //Seperate function to take player name data
+        const playerOne = playerData(playerOneData, 0);       //Factory function for both players
+        const playerTwo = playerData(playerTwoData, 1);       //Can change 0 and 1 to function to randomly generate
+        startGame(playerOne, playerTwo);        //Start game
+        container.style.display = 'none';
     });
-
-    
 }
 
-function startGame(){
-    document.querySelector('.menu-container').style.display = 'none';
+function startGame(playerOne, playerTwo){
     log("started game");
+    log(`Player One is ${playerOne.name} and is ${playerOne.mark}`);
+    log(`Player Two is ${playerTwo.name} and is ${playerTwo.mark}`);
+
 }
 
-function playerData(playerOne, playerTwo){
-    log(`P1: ${playerOne}\nP2: ${playerTwo}`);
-}
+function playerData(playerName, markIndex){
+    const name = playerName;
+    let marks = ['x', 'o']
+    mark = marks[markIndex];
+    return {name, mark};
+};
+
