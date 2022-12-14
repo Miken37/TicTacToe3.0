@@ -2,8 +2,8 @@ function log(text){
     return console.log(text);
 }
 
-(function menuCreate(){                 //Insantiates upon load of page.
-    menuDOM();
+(function menuCreate(){                 //Instantiates upon load of page. Could just run menuDOM(); but
+    menuDOM();                          //want to have more control over what runs at start
 })();
 
 function menuDOM(){
@@ -52,7 +52,8 @@ function startGame(playerOne, playerTwo){
     log("started game");
     log(`Player One is ${playerOne.name} and is ${playerOne.mark}`);
     log(`Player Two is ${playerTwo.name} and is ${playerTwo.mark}`);
-
+    drawBoard();
+    log(drawBoard().cells)
 }
 
 function playerData(playerName, markIndex){
@@ -62,3 +63,17 @@ function playerData(playerName, markIndex){
     return {name, mark};
 };
 
+function drawBoard(){
+    const boardContainer = document.createElement('div');
+    boardContainer.classList.add("game-container");
+    document.querySelector('body').appendChild(boardContainer); //appends to body
+    let cells = [];   //Empty array for the squares
+    for (let i = 0; i < 9; i++){
+        const square = document.createElement('div');
+        square.classList.add('square');
+        square.setAttribute('id', `cell${i}`);
+        boardContainer.appendChild(square);
+        cells.push(square);         //Adds each square to the empty array
+    }
+    return {cells};
+}

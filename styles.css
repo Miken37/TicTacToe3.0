@@ -49,3 +49,23 @@ h1{
     color:rgb(77, 77, 77);
     max-width: 70%;
 }
+
+.game-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+    margin: 150px;
+}
+
+.square{
+    background-color: rgb(77, 77, 77);
+    min-width: 50px;
+    max-width: 50px;
+    height: 50px;
+    border: 1px black solid;
+}
+
+.square:hover{
+    background-color: rgb(214, 214, 214);
+}
+
