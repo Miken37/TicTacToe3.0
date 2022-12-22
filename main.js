@@ -26,8 +26,10 @@ function menuDOM(){
 
     playerNameOne.setAttribute('placeholder', 'Player 1');
     playerNameOne.setAttribute('name', 'playerOneName');
+    playerNameOne.required = true;
     playerNameTwo.setAttribute('placeholder', 'Player 2');
     playerNameTwo.setAttribute('name', 'playerTwoName');
+    playerNameOne.required = false;
 
     //Appending elements to body/container
     body.appendChild(container);                //Adds form to body
@@ -53,7 +55,9 @@ function startGame(playerOne, playerTwo){       //Draws board and makes array fo
     cells.forEach(e => {
         e.addEventListener('click', function(){
             gameController(e.id, playerOne, playerTwo);
+            checkWinner(cells);
         });
+        findCurrentPlayer(playerOne.name, playerTwo.name)
     }); 
     
 }
@@ -106,26 +110,23 @@ function drawBoard(){
 function gameController(cell, playerOne, playerTwo){
     log(`Clicked: ${cell}`);
     let cellEle = document.querySelector(`#${cell}`);
-    const p1 = playerOne.name;
-    const p2 = playerTwo.name;
     let currentPlayer = findCurrentPlayer(playerOne.name, playerTwo.name); 
     log(currentPlayer);
-    // if (currentPlayer == p1){
-    //     cellEle.style.backgroundColor = "red";
-    //     currentPlayer = p2;
-    //     return currentPlayer;
-    // } else{
-    //     cellEle.style.backgroundColor = "blue";
-    //     currentPlayer = p1;
-    //     return currentPlayer;
-    // }
+    if (currentPlayer == playerOne.name){
+        cellEle.innerHTML = playerOne.mark;
+    }
+    if (currentPlayer == playerTwo.name){
+        cellEle.innerHTML = playerTwo.mark;
+    }
     
 }
 
 
-function findCurrentPlayer(playeroneName, playertwoName){
+function findCurrentPlayer(playerOneName, playerTwoName){//Function to switch between current players
     const playerTwo = document.querySelector('.player-two-header');
     const playerOne = document.querySelector('.player-one-header');
+    playerOne.innerHTML = playerOneName;
+    playerTwo.innerHTML = playerTwoName;
     if (playerOne.style.color == "cyan"){
         playerOne.style.color = "black";
         playerOne.style.fontSize = "20px";
@@ -140,4 +141,58 @@ function findCurrentPlayer(playeroneName, playertwoName){
     playerOne.style.color = "cyan";
     playerOne.style.fontSize = "35px";
     return currentPlayer;
+}
+
+function checkWinner(cells){
+    //x
+    if (cells[0].innerHTML && cells[1].innerHTML && cells[2].innerHTML == "x"){
+        log('x winner');
+    }
+    if (cells[3].innerHTML && cells[4].innerHTML && cells[5].innerHTML == "x"){
+        log('x winner');
+    }
+    if (cells[6].innerHTML && cells[7].innerHTML && cells[8].innerHTML == "x"){
+        log('x winner');
+    }
+    if (cells[0].innerHTML && cells[3].innerHTML && cells[6].innerHTML == "x"){
+        log('x winner');
+    }
+    if (cells[1].innerHTML && cells[4].innerHTML && cells[7].innerHTML == "x"){
+        log('x winner');
+    }
+    if (cells[2].innerHTML && cells[5].innerHTML && cells[8].innerHTML == "x"){
+        log('x winner');
+    }
+    if (cells[0].innerHTML && cells[4].innerHTML && cells[8].innerHTML == "x"){
+        log('x winner');
+    }
+    if (cells[2].innerHTML && cells[4].innerHTML && cells[6].innerHTML == "x"){
+        log('x winner');
+    }
+
+    //o
+    if (cells[0].innerHTML && cells[1].innerHTML && cells[2].innerHTML == "o"){
+        log('o winner');
+    }
+    if (cells[3].innerHTML && cells[4].innerHTML && cells[5].innerHTML == "o"){
+        log('o winner');
+    }
+    if (cells[6].innerHTML && cells[7].innerHTML && cells[8].innerHTML == "o"){
+        log('o winner');
+    }
+    if (cells[0].innerHTML && cells[3].innerHTML && cells[6].innerHTML == "o"){
+        log('o winner');
+    }
+    if (cells[1].innerHTML && cells[4].innerHTML && cells[7].innerHTML == "o"){
+        log('o winner');
+    }
+    if (cells[2].innerHTML && cells[5].innerHTML && cells[8].innerHTML == "o"){
+        log('o winner');
+    }
+    if (cells[0].innerHTML && cells[4].innerHTML && cells[8].innerHTML == "o"){
+        log('o winner');
+    }
+    if (cells[2].innerHTML && cells[4].innerHTML && cells[6].innerHTML == "o"){
+        log('o winner');
+    }
 }
