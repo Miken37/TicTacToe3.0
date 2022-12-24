@@ -58,8 +58,10 @@ function startGame(playerOne, playerTwo){       //Draws board and makes array fo
     let cells = drawBoard();            //cells is an array containing each square on the board
     cells.forEach(e => {
         e.addEventListener('click', function(){
-            gameController(e.id, playerOne, playerTwo);
-            checkWinner(cells);
+            if (e.innerHTML == ""){
+                gameController(e.id, playerOne, playerTwo);
+                checkWinner(cells);
+            }
         });
         findCurrentPlayer(playerOne.name, playerTwo.name)
     }); 
@@ -115,7 +117,7 @@ function gameController(cell, playerOne, playerTwo){
     log(`Clicked: ${cell}`);
     let cellEle = document.querySelector(`#${cell}`);
     let currentPlayer = findCurrentPlayer(playerOne.name, playerTwo.name); 
-    log(currentPlayer);
+    
     if (currentPlayer == playerOne.name){
         cellEle.innerHTML = playerOne.mark;
     }
@@ -151,52 +153,148 @@ function checkWinner(cells){
     //x
     if (cells[0].innerHTML == "x" && cells[1].innerHTML == "x" && cells[2].innerHTML == "x"){
         log('x winner');
+        cells[0].style.backgroundColor = "cyan";
+        cells[1].style.backgroundColor = "cyan";
+        cells[2].style.backgroundColor = "cyan";
+        cells[0].style.color = "black";
+        cells[1].style.color = "black";
+        cells[2].style.color = "black";
     }
     if (cells[3].innerHTML == "x" && cells[4].innerHTML == "x" && cells[5].innerHTML == "x"){
         log('x winner');
+        cells[3].style.backgroundColor = "cyan";
+        cells[4].style.backgroundColor = "cyan";
+        cells[5].style.backgroundColor = "cyan";
+        cells[3].style.color = "black";
+        cells[4].style.color = "black";
+        cells[5].style.color = "black";
     }
     if (cells[6].innerHTML == "x" && cells[7].innerHTML == "x" && cells[8].innerHTML == "x"){
         log('x winner');
+        cells[6].style.backgroundColor = "cyan";
+        cells[7].style.backgroundColor = "cyan";
+        cells[8].style.backgroundColor = "cyan";
+        cells[6].style.color = "black";
+        cells[7].style.color = "black";
+        cells[8].style.color = "black";
     }
     if (cells[0].innerHTML == "x" && cells[3].innerHTML == "x" && cells[6].innerHTML == "x"){
         log('x winner');
+        cells[0].style.backgroundColor = "cyan";
+        cells[3].style.backgroundColor = "cyan";
+        cells[6].style.backgroundColor = "cyan";
+        cells[0].style.color = "black";
+        cells[3].style.color = "black";
+        cells[6].style.color = "black";
     }
     if (cells[1].innerHTML == "x" && cells[4].innerHTML == "x" && cells[7].innerHTML == "x"){
         log('x winner');
+        cells[1].style.backgroundColor = "cyan";
+        cells[4].style.backgroundColor = "cyan";
+        cells[7].style.backgroundColor = "cyan";
+        cells[1].style.color = "black";
+        cells[4].style.color = "black";
+        cells[7].style.color = "black";
     }
     if (cells[2].innerHTML == "x" && cells[5].innerHTML == "x" && cells[8].innerHTML == "x"){
         log('x winner');
+        cells[2].style.backgroundColor = "cyan";
+        cells[5].style.backgroundColor = "cyan";
+        cells[8].style.backgroundColor = "cyan";
+        cells[2].style.color = "black";
+        cells[5].style.color = "black";
+        cells[8].style.color = "black";
     }
     if (cells[0].innerHTML == "x" && cells[4].innerHTML == "x" && cells[8].innerHTML == "x"){
         log('x winner');
+        cells[0].style.backgroundColor = "cyan";
+        cells[4].style.backgroundColor = "cyan";
+        cells[8].style.backgroundColor = "cyan";
+        cells[0].style.color = "black";
+        cells[4].style.color = "black";
+        cells[8].style.color = "black";
     }
     if (cells[2].innerHTML == "x" && cells[4].innerHTML == "x" && cells[6].innerHTML == "x"){
         log('x winner');
+        cells[2].style.backgroundColor = "cyan";
+        cells[4].style.backgroundColor = "cyan";
+        cells[6].style.backgroundColor = "cyan";
+        cells[2].style.color = "black";
+        cells[4].style.color = "black";
+        cells[6].style.color = "black";
     }
 
     //o
     if (cells[0].innerHTML == "o" && cells[1].innerHTML == "o" && cells[2].innerHTML == "o"){
         log('o winner');
+        cells[0].style.backgroundColor = "cyan";
+        cells[1].style.backgroundColor = "cyan";
+        cells[2].style.backgroundColor = "cyan";
+        cells[0].style.color = "black";
+        cells[1].style.color = "black";
+        cells[2].style.color = "black";
     }
     if (cells[3].innerHTML == "o" && cells[4].innerHTML == "o" && cells[5].innerHTML == "o"){
         log('o winner');
+        cells[3].style.backgroundColor = "cyan";
+        cells[4].style.backgroundColor = "cyan";
+        cells[5].style.backgroundColor = "cyan";
+        cells[3].style.color = "black";
+        cells[4].style.color = "black";
+        cells[5].style.color = "black";
     }
     if (cells[6].innerHTML == "o" && cells[7].innerHTML == "o" && cells[8].innerHTML == "o"){
         log('o winner');
+        cells[6].style.backgroundColor = "cyan";
+        cells[7].style.backgroundColor = "cyan";
+        cells[8].style.backgroundColor = "cyan";
+        cells[6].style.color = "black";
+        cells[7].style.color = "black";
+        cells[8].style.color = "black";
     }
     if (cells[0].innerHTML == "o" && cells[3].innerHTML == "o" && cells[6].innerHTML == "o"){
         log('o winner');
+        cells[0].style.backgroundColor = "cyan";
+        cells[3].style.backgroundColor = "cyan";
+        cells[6].style.backgroundColor = "cyan";
+        cells[0].style.color = "black";
+        cells[3].style.color = "black";
+        cells[6].style.color = "black";
     }
     if (cells[1].innerHTML == "o" && cells[4].innerHTML == "o" && cells[7].innerHTML == "o"){
         log('o winner');
+        cells[1].style.backgroundColor = "cyan";
+        cells[4].style.backgroundColor = "cyan";
+        cells[7].style.backgroundColor = "cyan";
+        cells[1].style.color = "black";
+        cells[4].style.color = "black";
+        cells[7].style.color = "black";
     }
     if (cells[2].innerHTML == "o" && cells[5].innerHTML == "o" && cells[8].innerHTML == "o"){
         log('o winner');
+        cells[2].style.backgroundColor = "cyan";
+        cells[5].style.backgroundColor = "cyan";
+        cells[8].style.backgroundColor = "cyan";
+        cells[2].style.color = "black";
+        cells[5].style.color = "black";
+        cells[8].style.color = "black";
     }
     if (cells[0].innerHTML == "o" && cells[4].innerHTML == "o" && cells[8].innerHTML == "o"){
         log('o winner');
+        cells[0].style.backgroundColor = "cyan";
+        cells[4].style.backgroundColor = "cyan";
+        cells[8].style.backgroundColor = "cyan";
+        cells[0].style.color = "black";
+        cells[4].style.color = "black";
+        cells[8].style.color = "black";
     }
     if (cells[2].innerHTML == "o" && cells[4].innerHTML == "o" && cells[6].innerHTML == "o"){
         log('o winner');
+        cells[2].style.backgroundColor = "cyan";
+        cells[4].style.backgroundColor = "cyan";
+        cells[6].style.backgroundColor = "cyan";
+        cells[2].style.color = "black";
+        cells[4].style.color = "black";
+        cells[6].st
     }
 }
