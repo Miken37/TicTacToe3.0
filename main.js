@@ -29,7 +29,7 @@ function menuDOM(){
     playerNameOne.required = true;
     playerNameTwo.setAttribute('placeholder', 'Player 2');
     playerNameTwo.setAttribute('name', 'playerTwoName');
-    playerNameOne.required = false;
+    playerNameTwo.required = true;
 
     //Appending elements to body/container
     body.appendChild(container);                //Adds form to body
@@ -43,6 +43,10 @@ function menuDOM(){
         e.preventDefault();
         const playerOneData = container.elements['playerOneName'].value;
         const playerTwoData = container.elements['playerTwoName'].value;
+        if (playerOneData == playerTwoData){
+            alert("Names cannot be the same");
+            location.reload();
+        }
         const playerOne = playerData(playerOneData, 0);       //Factory function for both players
         const playerTwo = playerData(playerTwoData, 1);       //Can change 0 and 1 to function to randomly generate
         startGame(playerOne, playerTwo);        //Start game
@@ -145,54 +149,54 @@ function findCurrentPlayer(playerOneName, playerTwoName){//Function to switch be
 
 function checkWinner(cells){
     //x
-    if (cells[0].innerHTML && cells[1].innerHTML && cells[2].innerHTML == "x"){
+    if (cells[0].innerHTML == "x" && cells[1].innerHTML == "x" && cells[2].innerHTML == "x"){
         log('x winner');
     }
-    if (cells[3].innerHTML && cells[4].innerHTML && cells[5].innerHTML == "x"){
+    if (cells[3].innerHTML == "x" && cells[4].innerHTML == "x" && cells[5].innerHTML == "x"){
         log('x winner');
     }
-    if (cells[6].innerHTML && cells[7].innerHTML && cells[8].innerHTML == "x"){
+    if (cells[6].innerHTML == "x" && cells[7].innerHTML == "x" && cells[8].innerHTML == "x"){
         log('x winner');
     }
-    if (cells[0].innerHTML && cells[3].innerHTML && cells[6].innerHTML == "x"){
+    if (cells[0].innerHTML == "x" && cells[3].innerHTML == "x" && cells[6].innerHTML == "x"){
         log('x winner');
     }
-    if (cells[1].innerHTML && cells[4].innerHTML && cells[7].innerHTML == "x"){
+    if (cells[1].innerHTML == "x" && cells[4].innerHTML == "x" && cells[7].innerHTML == "x"){
         log('x winner');
     }
-    if (cells[2].innerHTML && cells[5].innerHTML && cells[8].innerHTML == "x"){
+    if (cells[2].innerHTML == "x" && cells[5].innerHTML == "x" && cells[8].innerHTML == "x"){
         log('x winner');
     }
-    if (cells[0].innerHTML && cells[4].innerHTML && cells[8].innerHTML == "x"){
+    if (cells[0].innerHTML == "x" && cells[4].innerHTML == "x" && cells[8].innerHTML == "x"){
         log('x winner');
     }
-    if (cells[2].innerHTML && cells[4].innerHTML && cells[6].innerHTML == "x"){
+    if (cells[2].innerHTML == "x" && cells[4].innerHTML == "x" && cells[6].innerHTML == "x"){
         log('x winner');
     }
 
     //o
-    if (cells[0].innerHTML && cells[1].innerHTML && cells[2].innerHTML == "o"){
+    if (cells[0].innerHTML == "o" && cells[1].innerHTML == "o" && cells[2].innerHTML == "o"){
         log('o winner');
     }
-    if (cells[3].innerHTML && cells[4].innerHTML && cells[5].innerHTML == "o"){
+    if (cells[3].innerHTML == "o" && cells[4].innerHTML == "o" && cells[5].innerHTML == "o"){
         log('o winner');
     }
-    if (cells[6].innerHTML && cells[7].innerHTML && cells[8].innerHTML == "o"){
+    if (cells[6].innerHTML == "o" && cells[7].innerHTML == "o" && cells[8].innerHTML == "o"){
         log('o winner');
     }
-    if (cells[0].innerHTML && cells[3].innerHTML && cells[6].innerHTML == "o"){
+    if (cells[0].innerHTML == "o" && cells[3].innerHTML == "o" && cells[6].innerHTML == "o"){
         log('o winner');
     }
-    if (cells[1].innerHTML && cells[4].innerHTML && cells[7].innerHTML == "o"){
+    if (cells[1].innerHTML == "o" && cells[4].innerHTML == "o" && cells[7].innerHTML == "o"){
         log('o winner');
     }
-    if (cells[2].innerHTML && cells[5].innerHTML && cells[8].innerHTML == "o"){
+    if (cells[2].innerHTML == "o" && cells[5].innerHTML == "o" && cells[8].innerHTML == "o"){
         log('o winner');
     }
-    if (cells[0].innerHTML && cells[4].innerHTML && cells[8].innerHTML == "o"){
+    if (cells[0].innerHTML == "o" && cells[4].innerHTML == "o" && cells[8].innerHTML == "o"){
         log('o winner');
     }
-    if (cells[2].innerHTML && cells[4].innerHTML && cells[6].innerHTML == "o"){
+    if (cells[2].innerHTML == "o" && cells[4].innerHTML == "o" && cells[6].innerHTML == "o"){
         log('o winner');
     }
 }
