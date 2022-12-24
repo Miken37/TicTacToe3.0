@@ -60,7 +60,7 @@ function startGame(playerOne, playerTwo){       //Draws board and makes array fo
         e.addEventListener('click', function(){
             if (e.innerHTML == ""){
                 gameController(e.id, playerOne, playerTwo);
-                checkWinner(cells);
+                checkWinner(cells, playerOne, playerTwo);
             }
         });
         findCurrentPlayer(playerOne.name, playerTwo.name)
@@ -149,152 +149,75 @@ function findCurrentPlayer(playerOneName, playerTwoName){//Function to switch be
     return currentPlayer;
 }
 
-function checkWinner(cells){
+function checkWinner(cells, playerOne, playerTwo){
     //x
     if (cells[0].innerHTML == "x" && cells[1].innerHTML == "x" && cells[2].innerHTML == "x"){
-        log('x winner');
-        cells[0].style.backgroundColor = "cyan";
-        cells[1].style.backgroundColor = "cyan";
-        cells[2].style.backgroundColor = "cyan";
-        cells[0].style.color = "black";
-        cells[1].style.color = "black";
-        cells[2].style.color = "black";
+        gameWin(playerTwo);
     }
     if (cells[3].innerHTML == "x" && cells[4].innerHTML == "x" && cells[5].innerHTML == "x"){
-        log('x winner');
-        cells[3].style.backgroundColor = "cyan";
-        cells[4].style.backgroundColor = "cyan";
-        cells[5].style.backgroundColor = "cyan";
-        cells[3].style.color = "black";
-        cells[4].style.color = "black";
-        cells[5].style.color = "black";
+        gameWin(playerTwo);
+
     }
     if (cells[6].innerHTML == "x" && cells[7].innerHTML == "x" && cells[8].innerHTML == "x"){
-        log('x winner');
-        cells[6].style.backgroundColor = "cyan";
-        cells[7].style.backgroundColor = "cyan";
-        cells[8].style.backgroundColor = "cyan";
-        cells[6].style.color = "black";
-        cells[7].style.color = "black";
-        cells[8].style.color = "black";
+        gameWin(playerTwo);
     }
     if (cells[0].innerHTML == "x" && cells[3].innerHTML == "x" && cells[6].innerHTML == "x"){
-        log('x winner');
-        cells[0].style.backgroundColor = "cyan";
-        cells[3].style.backgroundColor = "cyan";
-        cells[6].style.backgroundColor = "cyan";
-        cells[0].style.color = "black";
-        cells[3].style.color = "black";
-        cells[6].style.color = "black";
+        gameWin(playerTwo);
     }
     if (cells[1].innerHTML == "x" && cells[4].innerHTML == "x" && cells[7].innerHTML == "x"){
-        log('x winner');
-        cells[1].style.backgroundColor = "cyan";
-        cells[4].style.backgroundColor = "cyan";
-        cells[7].style.backgroundColor = "cyan";
-        cells[1].style.color = "black";
-        cells[4].style.color = "black";
-        cells[7].style.color = "black";
+        gameWin(playerTwo);
     }
     if (cells[2].innerHTML == "x" && cells[5].innerHTML == "x" && cells[8].innerHTML == "x"){
-        log('x winner');
-        cells[2].style.backgroundColor = "cyan";
-        cells[5].style.backgroundColor = "cyan";
-        cells[8].style.backgroundColor = "cyan";
-        cells[2].style.color = "black";
-        cells[5].style.color = "black";
-        cells[8].style.color = "black";
+        gameWin(playerTwo);
     }
     if (cells[0].innerHTML == "x" && cells[4].innerHTML == "x" && cells[8].innerHTML == "x"){
-        log('x winner');
-        cells[0].style.backgroundColor = "cyan";
-        cells[4].style.backgroundColor = "cyan";
-        cells[8].style.backgroundColor = "cyan";
-        cells[0].style.color = "black";
-        cells[4].style.color = "black";
-        cells[8].style.color = "black";
+        gameWin(playerTwo);
     }
     if (cells[2].innerHTML == "x" && cells[4].innerHTML == "x" && cells[6].innerHTML == "x"){
-        log('x winner');
-        cells[2].style.backgroundColor = "cyan";
-        cells[4].style.backgroundColor = "cyan";
-        cells[6].style.backgroundColor = "cyan";
-        cells[2].style.color = "black";
-        cells[4].style.color = "black";
-        cells[6].style.color = "black";
+        gameWin(playerOne);
     }
 
     //o
     if (cells[0].innerHTML == "o" && cells[1].innerHTML == "o" && cells[2].innerHTML == "o"){
-        log('o winner');
-        cells[0].style.backgroundColor = "cyan";
-        cells[1].style.backgroundColor = "cyan";
-        cells[2].style.backgroundColor = "cyan";
-        cells[0].style.color = "black";
-        cells[1].style.color = "black";
-        cells[2].style.color = "black";
+        gameWin(playerOne);
     }
     if (cells[3].innerHTML == "o" && cells[4].innerHTML == "o" && cells[5].innerHTML == "o"){
-        log('o winner');
-        cells[3].style.backgroundColor = "cyan";
-        cells[4].style.backgroundColor = "cyan";
-        cells[5].style.backgroundColor = "cyan";
-        cells[3].style.color = "black";
-        cells[4].style.color = "black";
-        cells[5].style.color = "black";
+        gameWin(playerOne);
     }
     if (cells[6].innerHTML == "o" && cells[7].innerHTML == "o" && cells[8].innerHTML == "o"){
-        log('o winner');
-        cells[6].style.backgroundColor = "cyan";
-        cells[7].style.backgroundColor = "cyan";
-        cells[8].style.backgroundColor = "cyan";
-        cells[6].style.color = "black";
-        cells[7].style.color = "black";
-        cells[8].style.color = "black";
+        gameWin(playerOne);
     }
     if (cells[0].innerHTML == "o" && cells[3].innerHTML == "o" && cells[6].innerHTML == "o"){
-        log('o winner');
-        cells[0].style.backgroundColor = "cyan";
-        cells[3].style.backgroundColor = "cyan";
-        cells[6].style.backgroundColor = "cyan";
-        cells[0].style.color = "black";
-        cells[3].style.color = "black";
-        cells[6].style.color = "black";
+        gameWin(playerOne);
     }
     if (cells[1].innerHTML == "o" && cells[4].innerHTML == "o" && cells[7].innerHTML == "o"){
-        log('o winner');
-        cells[1].style.backgroundColor = "cyan";
-        cells[4].style.backgroundColor = "cyan";
-        cells[7].style.backgroundColor = "cyan";
-        cells[1].style.color = "black";
-        cells[4].style.color = "black";
-        cells[7].style.color = "black";
+        gameWin(playerOne);
     }
     if (cells[2].innerHTML == "o" && cells[5].innerHTML == "o" && cells[8].innerHTML == "o"){
-        log('o winner');
-        cells[2].style.backgroundColor = "cyan";
-        cells[5].style.backgroundColor = "cyan";
-        cells[8].style.backgroundColor = "cyan";
-        cells[2].style.color = "black";
-        cells[5].style.color = "black";
-        cells[8].style.color = "black";
+        gameWin(playerOne);
     }
     if (cells[0].innerHTML == "o" && cells[4].innerHTML == "o" && cells[8].innerHTML == "o"){
-        log('o winner');
-        cells[0].style.backgroundColor = "cyan";
-        cells[4].style.backgroundColor = "cyan";
-        cells[8].style.backgroundColor = "cyan";
-        cells[0].style.color = "black";
-        cells[4].style.color = "black";
-        cells[8].style.color = "black";
+        gameWin(playerOne);
     }
     if (cells[2].innerHTML == "o" && cells[4].innerHTML == "o" && cells[6].innerHTML == "o"){
-        log('o winner');
-        cells[2].style.backgroundColor = "cyan";
-        cells[4].style.backgroundColor = "cyan";
-        cells[6].style.backgroundColor = "cyan";
-        cells[2].style.color = "black";
-        cells[4].style.color = "black";
-        cells[6].st
+        gameWin(playerOne);
+
     }
+}
+
+function gameWin(winner){
+    let winScreen = document.createElement('div');
+    winScreen.classList.add("win-screen");  
+    const body = document.querySelector('body');
+    body.appendChild(winScreen);
+    let winningPlayer = document.createElement('h1');
+    winScreen.appendChild(winningPlayer);
+    winningPlayer.innerHTML = `${winner.name} is the winner!`;
+    let playAgain = document.createElement('div');
+    playAgain.classList.add('game-over-btns');
+    playAgain.innerHTML = 'Play again';
+    winScreen.appendChild(playAgain);
+    playAgain.addEventListener('click', () => {
+        location.reload();
+    })
 }
